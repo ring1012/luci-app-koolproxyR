@@ -119,6 +119,7 @@ __update_rule() {
 }
 
 kpr_update_rules() {
+        [ -L /usr/share/koolproxy/data/rules ] || ( mv /usr/share/koolproxy/data/rules /tmp/ && ln -s /tmp/rules /usr/share/koolproxy/data/rules )
         echo $(date "+%F %T"): ------------------- 内置规则更新 ------------------- >>$LOGFILE
 	echo_date =======================================================================================================
 	echo_date 开始更新koolproxyR的规则，请等待...
