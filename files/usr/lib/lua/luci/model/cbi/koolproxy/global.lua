@@ -108,7 +108,7 @@ e = t:taboption("base", Button, "restart", translate("规则状态"))
 e.inputtitle = translate("更新规则")
 e.inputstyle = "reload"
 e.write = function()
-	luci.sys.call("/usr/share/koolproxy/kpupdate 2>&1 >/dev/null")
+	luci.sys.call("/usr/share/koolproxy/kpupdate 2>&1 >/dev/null &")
 	luci.http.redirect(luci.dispatcher.build_url("admin","services","koolproxy"))
 end
 e.description = translate(string.format("<font color=\"red\"><strong>更新订阅规则与Adblock Plus Hosts</strong></font><br /><font color=\"green\">ABP规则: %s条<br />fanboy规则: %s条<br />yhosts规则: %s条<br />自定义规则: %s条<br />Host: %s条</font><br />", s, u, p, h, i))
